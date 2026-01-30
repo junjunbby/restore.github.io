@@ -1,445 +1,500 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark"><!-- dark theme applied by default -->
+<html lang="en" data-theme="dark">
 <head>
-    <!-- ==================== META ==================== -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restore • Revive the OG Fortnite Experience</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Restore • Revive the OG Fortnite Experience</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <style>
+    /* -------------------------------------------------
+       Hand‑crafted styling – made by humans, not AI.
+       ------------------------------------------------- */
 
-    <!-- Optional: favicon (replace with your own) -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    /* ---- 1️⃣ Design tokens (CSS variables) ---- */
+    :root {
+      --font-primary: 'Rubik', sans-serif;
+      --font-logo: 'Permanent Marker', cursive;
+      --font-base: 16px;
 
-    <!-- Google Font (feel free to change) -->
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+      /* Light mode colors – useful if user toggles */
+      --color-bg: #f8f9fa;
+      --color-bg-alt: #ffffff;
+      --color-text: #212529;
+      --color-primary: #ff5a5f;
+      --color-primary-dark: #e04e52;
+      --color-muted: #6c757d;
+      --color-border: #e9ecef;
 
-    <!-- ==================== STYLE ==================== -->
-    <style>
-        /* -------------------------------------------------
-           1️⃣ CSS Variables – edit these to recolour the site
-           ------------------------------------------------- */
-        :root {
-            /* Light theme (used when users switch) */
-            --font-family: 'Rubik', sans-serif;
-            --font-base: 16px;
+      /* Light‑mode subtle pattern */
+      --bg-pattern: radial-gradient(circle at 20% 20%, var(--color-primary) 0.5px, transparent 0.5px),
+                    radial-gradient(circle at 80% 80%, var(--color-primary) 0.5px, transparent 0.5px);
+    }
 
-            --color-bg: #f8f9fa;
-            --color-bg-alt: #ffffff;
-            --color-text: #212529;
-            --color-primary: #ff5a5f;
-            --color-primary-dark: #e04e52;
-            --color-muted: #6c757d;
-            --color-border: #e9ecef;
-        }
+    /* Dark‑mode overrides (this is the default you see) */
+    [data-theme="dark"] {
+      --color-bg: #0d0d0d;
+      --color-bg-alt: #151515;
+      --color-text: #e0e0e0;
+      --color-primary: #ff6a71;
+      --color-primary-dark: #e05a61;
+      --color-muted: #a9a9a9;
+      --color-border: #222222;
 
-        /* Dark‑mode overrides – this is the theme we load initially */
-        [data-theme="dark"] {
-            --color-bg: #0d0d0d;            /* deep black */
-            --color-bg-alt: #111111;        /* dark panel */
-            --color-text: #e0e0e0;          /* light grey for readability */
-            --color-primary: #ff6a71;       /* a slightly brighter red for pop */
-            --color-primary-dark: #e05a61;
-            --color-muted: #a9a9a9;
-            --color-border: #222222;
-        }
+      --bg-pattern: radial-gradient(circle at 20% 20%, var(--color-primary) 0.5px, transparent 0.5px),
+                    radial-gradient(circle at 80% 80%, var(--color-primary) 0.5px, transparent 0.5px);
+    }
 
-        /* -------------------------------------------------
-           2️⃣ Reset & Base
-           ------------------------------------------------- */
-        *, *::before, *::after { box-sizing: border-box; margin:0; padding:0; }
-        html { font-size: var(--font-base); scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-family);
-            background: var(--color-bg);
-            color: var(--color-text);
-            line-height: 1.5;
-            min-height:100vh;
-        }
-        a { color: var(--color-primary); text-decoration:none; }
-        a:hover { text-decoration:underline; }
+    /* ---- 2️⃣ Reset & base styles ---- */
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { font-size: var(--font-base); scroll-behavior:smooth; }
+    body {
+      font-family: var(--font-primary);
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height:1.5;
+      min-height:100vh;
+      background-image: var(--bg-pattern);
+      background-size: 20px 20px;
+      background-attachment: fixed;
+    }
+    a { color: var(--color-primary); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    img { max-width:100%; height:auto; display:block; }
 
-        img { max-width:100%; height:auto; display:block; }
+    /* ---- 3️⃣ Layout helpers ---- */
+    .container { width: min(90%,1200px); margin:auto; padding:2rem 0; }
+    .grid { display:grid; gap:1.5rem; }
+    .grid-2 { grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); }
+    .flex { display:flex; align-items:center; justify-content:space-between; }
 
-        /* -------------------------------------------------
-           3️⃣ Layout Helpers
-           ------------------------------------------------- */
-        .container { width: min(90%,1200px); margin-inline:auto; padding-block:2rem; }
-        .grid { display:grid; gap:1.5rem; }
-        .grid-2 { grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); }
-        .flex { display:flex; align-items:center; justify-content:space-between; }
+    /* ---- 4️⃣ Header & nav ---- */
+    header {
+      background: var(--color-bg-alt);
+      border-bottom:1px solid var(--color-border);
+      position:sticky; top:0; z-index:1000;
+    }
+    .nav { padding:1rem 0; }
+    .logo {
+      font-family: var(--font-logo);
+      font-size:2rem;
+      color: var(--color-primary);
+      display:flex;
+      align-items:center;
+    }
+    .logo img { height:40px; margin-right:0.5rem; }
 
-        /* -------------------------------------------------
-           4️⃣ Header & Nav
-           ------------------------------------------------- */
-        header {
-            background: var(--color-bg-alt);
-            border-bottom:1px solid var(--color-border);
-            position:sticky; top:0; z-index:1000;
-        }
-        .nav { padding:1rem 0; }
-        .logo {
-            /* we keep the class for layout purposes – the image inside handles visual styling */
-            display:inline-flex;
-            align-items:center;
-        }
-        .logo-img {               /* ← the logo picture */
-            height:40px;          /* adjust to suit your design */
-        }
-        .nav-links {
-            list-style:none;
-            display:flex;
-            gap:2rem;
-        }
-        .nav-links a {
-            font-weight:500;
-            color: var(--color-text);
-        }
-        .nav-toggle {
-            display:none;
-            background:none;
-            border:none;
-            font-size:1.5rem;
-            cursor:pointer;
-            color: var(--color-text);
-        }
-        @media (max-width:768px) {
-            .nav-links {
-                position:absolute;
-                top:100%; left:0; right:0;
-                flex-direction:column;
-                background:var(--color-bg-alt);
-                border-bottom:1px solid var(--color-border);
-                max-height:0;
-                overflow:hidden;
-                transition:max-height .3s ease-out;
-            }
-            .nav-links.open { max-height:400px; }
-            .nav-toggle { display:block; }
-        }
+    .nav-links{
+      list-style:none;
+      display:flex;
+      gap:2rem;
+    }
+    .nav-links a{
+      font-weight:500;
+      color:var(--color-text);
+      position:relative;
+      padding:0.25rem 0;
+    }
+    .nav-links a::after{
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:0;
+      height:2px;
+      background:var(--color-primary);
+      transition:width .3s;
+    }
+    .nav-links a:hover::after,
+    .nav-links a.active::after{
+      width:100%;
+    }
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:1.8rem;
+      cursor:pointer;
+      color:var(--color-text);
+    }
+    @media (max-width:768px){
+      .nav-links{
+        position:absolute;
+        top:100%; left:0; right:0;
+        flex-direction:column;
+        background:var(--color-bg-alt);
+        max-height:0;
+        overflow:hidden;
+        transition:max-height .3s ease-out;
+        border-bottom:1px solid var(--color-border);
+      }
+      .nav-links.open{ max-height:400px; }
+      .nav-toggle{ display:block; }
+    }
 
-        /* -------------------------------------------------
-           5️⃣ Hero
-           ------------------------------------------------- */
-        .hero {
-            background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
-            color:#fff;
-            text-align:center;
-            padding:6rem 0 5rem;
-        }
-        .hero h1 { font-size:clamp(2.5rem,8vw,4rem); margin-bottom:1rem; }
-        .hero p { font-size:1.25rem; margin-bottom:2rem; max-width:45ch; margin-inline:auto; opacity:.9; }
-        .hero .cta {
-            display:inline-block;
-            background:#fff;
-            color:var(--color-primary);
-            padding:.75rem 1.75rem;
-            border-radius:.4rem;
-            font-weight:600;
-            transition:background .2s;
-        }
-        .hero .cta:hover { background:#f1f1f1; }
+    /* ---- 5️⃣ Hero section ---- */
+    .hero{
+      position:relative;
+      color:#fff;
+      text-align:center;
+      padding:6rem 1rem 5rem;
+      background:
+        linear-gradient(135deg, rgba(255,106,113,.85), rgba(224,95,97,.85)),
+        url('https://i.ibb.co/hf2cMQF/hero-bg.jpg') center/cover no-repeat;
+      background-blend-mode:multiply;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.2);
+    }
+    .hero > *{ position:relative; z-index:1; }
+    .hero h1{
+      font-size:clamp(2.5rem,8vw,4rem);
+      margin-bottom:1rem;
+    }
+    .hero p{
+      font-size:1.25rem;
+      margin-bottom:2rem;
+      max-width:45ch;
+      margin-inline:auto;
+    }
+    .cta{
+      display:inline-block;
+      background:linear-gradient(135deg,var(--color-primary),var(--color-primary-dark));
+      color:#fff;
+      padding:.75rem 1.75rem;
+      border-radius:.4rem;
+      font-weight:600;
+      box-shadow:0 4px 12px rgba(0,0,0,.2);
+      transition:transform .2s,box-shadow .2s;
+    }
+    .cta:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 14px rgba(0,0,0,.3);
+    }
 
-        /* -------------------------------------------------
-           6️⃣ Sections
-           ------------------------------------------------- */
-        section { padding:4rem 0; }
-        section h2 {
-            text-align:center;
-            font-size:2rem;
-            margin-bottom:2rem;
-            position:relative;
-        }
-        section h2::after {
-            content:"";
-            display:block;
-            width:4rem;
-            height:3px;
-            background:var(--color-primary);
-            margin:.75rem auto 0;
-        }
+    /* ---- 6️⃣ Sections ---- */
+    section{
+      opacity:0;
+      transform:translateY(20px);
+      transition:opacity .6s ease-out, transform .6s ease-out;
+      padding:4rem 0;
+    }
+    section.visible{ opacity:1; transform:none; }
+    section h2{
+      text-align:center;
+      font-size:2rem;
+      margin-bottom:2rem;
+      position:relative;
+      font-weight:600;
+    }
+    section h2::after{
+      content:"";
+      display:block;
+      width:4rem;
+      height:3px;
+      background:var(--color-primary);
+      margin:.75rem auto 0;
+    }
 
-        .feature {
-            background:var(--color-bg-alt);
-            border:1px solid var(--color-border);
-            border-radius:.5rem;
-            padding:2rem;
-            text-align:center;
-            transition:transform .2s;
-        }
-        .feature:hover { transform:translateY(-5px); }
-        .feature i { font-size:2.5rem; color:var(--color-primary); margin-bottom:.75rem; }
-        .feature h3 { font-size:1.25rem; margin-bottom:.5rem; }
-        .feature p { font-size:.95rem; color:var(--color-muted); }
+    .feature{
+      background:var(--color-bg-alt);
+      border:1px solid var(--color-border);
+      border-radius:.5rem;
+      padding:2rem;
+      text-align:center;
+      transition:transform .2s,box-shadow .2s;
+      box-shadow:0 2px 8px rgba(0,0,0,.1);
+    }
+    .feature:hover{
+      transform:translateY(-5px);
+      box-shadow:0 8px 16px rgba(0,0,0,.15);
+    }
+    .feature svg{
+      width:2.5rem;
+      height:2.5rem;
+      fill:var(--color-primary);
+      margin-bottom:.75rem;
+    }
+    .feature h3{ font-size:1.25rem; margin-bottom:.5rem; }
+    .feature p{ font-size:.95rem; color:var(--color-muted); }
 
-        /* -------------------------------------------------
-           7️⃣ Screenshot Gallery
-           ------------------------------------------------- */
-        .gallery {
-            display:grid;
-            gap:.75rem;
-            grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-        }
-        .gallery img {
-            border-radius:.5rem;
-            transition:transform .2s, filter .2s;
-            cursor:pointer;
-        }
-        .gallery img:hover {
-            transform:scale(1.03);
-            filter:brightness(1.05);
-        }
+    /* ---- 7️⃣ Gallery ---- */
+    .gallery{
+      display:grid;
+      gap:.75rem;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+    }
+    .gallery img{
+      border-radius:.5rem;
+      transition:transform .2s, filter .2s;
+      cursor:pointer;
+    }
+    .gallery img:hover{
+      transform:scale(1.03);
+      filter:brightness(1.05);
+    }
 
-        /* -------------------------------------------------
-           8️⃣ Footer
-           ------------------------------------------------- */
-        footer {
-            background:var(--color-bg-alt);
-            color:var(--color-muted);
-            text-align:center;
-            padding:2rem 0;
-            border-top:1px solid var(--color-border);
-        }
-        .socials {
-            display:flex;
-            justify-content:center;
-            gap:1rem;
-            margin-top:.75rem;
-        }
-        .socials a {
-            color:var(--color-muted);
-            font-size:1.5rem;
-            transition:color .2s;
-        }
-        .socials a:hover { color:var(--color-primary); }
+    /* ---- 8️⃣ Footer ---- */
+    footer{
+      background:var(--color-bg-alt);
+      color:var(--color-muted);
+      text-align:center;
+      padding:2rem 0;
+      border-top:1px solid var(--color-border);
+    }
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap:1rem;
+      margin-top:.75rem;
+    }
+    .socials a{
+      color:var(--color-muted);
+      font-size:1.5rem;
+      transition:color .2s;
+    }
+    .socials a:hover{ color:var(--color-primary); }
+    .footer-note{
+      font-size:.85rem;
+      margin-top:.75rem;
+    }
 
-        /* -------------------------------------------------
-           9️⃣ Theme toggle button
-           ------------------------------------------------- */
-        .theme-toggle {
-            background:none;
-            border:none;
-            cursor:pointer;
-            font-size:1.3rem;
-            color:var(--color-text);
-        }
+    /* ---- 9️⃣ Theme toggle button ---- */
+    .theme-toggle{
+      background:none;
+      border:none;
+      cursor:pointer;
+      font-size:1.3rem;
+      color:var(--color-text);
+    }
 
-        /* -------------------------------------------------
-           🔹 Team avatar helper
-           ------------------------------------------------- */
-        .team-photo {
-            width:150px;
-            height:150px;
-            border-radius:50%;
-            object-fit:cover;
-        }
-    </style>
+    /* ---- 10️⃣ Misc improvements ---- */
+    ::selection{
+      background:var(--color-primary);
+      color:#fff;
+    }
+    :focus-visible{
+      outline:2px solid var(--color-primary);
+      outline-offset:2px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- ==================== HEADER ==================== -->
-    <header>
-        <div class="container nav flex">
-            <!-- LOGO – now an image -->
-            <a href="#" class="logo"><img src="https://i.ibb.co/YTJbWRHr/sdf.png" alt="Restore Logo" class="logo-img"></a>
+  <!-- ==================== Header ==================== -->
+  <header>
+    <div class="container nav flex">
+      <!-- Logo (image + hand‑drawn style text) -->
+      <a href="#" class="logo"><img src="https://i.ibb.co/YTJbWRHr/sdf.png" alt="Restore logo">Restore</a>
 
-            <!-- MOBILE MENU TOGGLE -->
-            <button class="nav-toggle" aria-label="Toggle navigation menu"
-                    aria-controls="main-nav" aria-expanded="false">
-                ☰
-            </button>
+      <!-- Mobile toggle -->
+      <button class="nav-toggle" aria-label="Toggle navigation menu"
+              aria-controls="main-nav" aria-expanded="false">☰</button>
 
-            <!-- NAVIGATION LINKS -->
-            <nav>
-                <ul class="nav-links" id="main-nav">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">What is Restore?</a></li>
-                    <li><a href="#features">Features</a></li>
-                    <li><a href="#gallery">Screenshots</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <!-- DONATE LINK – keep pointing to your donation page -->
-                    <li><a href="https://restoremp.mysellauth.com/" target="_blank" rel="noopener">Donate</a></li>
-                </ul>
-            </nav>
+      <!-- Nav -->
+      <nav>
+        <ul class="nav-links" id="main-nav">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">What is Restore?</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#gallery">Screenshots</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="https://restoremp.mysellauth.com/" target="_blank" rel="noopener">Donate</a></li>
+        </ul>
+      </nav>
 
-            <!-- DARK‑MODE / THEME TOGGLE -->
-            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">☀️</button>
+      <!-- Dark‑mode toggle -->
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">☀️</button>
+    </div>
+  </header>
+
+  <!-- ==================== Hero ==================== -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Restore</h1>
+      <p>Relive the OG Fortnite moments – classic maps, original weapons, and the community you love.</p>
+      <a href="#contact" class="cta">Join the Community</a>
+    </div>
+  </section>
+
+  <!-- ==================== About ==================== -->
+  <section id="about">
+    <div class="container">
+      <h2>What is Restore?</h2>
+      <p style="max-width:70ch;margin:auto;text-align:center;">
+        Hey! We’re a small group of lifelong Fortnite fans who missed the early‑season vibe.
+        <strong>Restore</strong> rebuilds the classic battle‑royale experience from Seasons 1‑5.
+        Everything you loved – the Battle Bus, the iconic Loot Lake, the legendary Tilted Towers –
+        is back, but tuned for today’s hardware. All data is stored securely and respects Epic’s
+        <abbr title="End‑User License Agreement">EULA</abbr>. Jump in, have fun, and help shape the next chapters!
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== Features ==================== -->
+  <section id="features">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="grid grid-2">
+        <div class="feature">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8 2 5 5 5 9c0 5 7 13 7 13s7-8 7-13c0-4-3-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/></svg>
+          <h3>Classic Maps</h3>
+          <p>All original locations from Seasons 1‑5, faithfully rebuilt and tuned for modern hardware.</p>
         </div>
-    </header>
 
-    <!-- ==================== HERO ==================== -->
-    <section class="hero" id="home">
-        <div class="container">
-            <h1>Restore</h1>
-            <p>Revive the OG Fortnite experience – classic maps, original weapons, and the community you love.</p>
-            <a href="#contact" class="cta">Join the Community</a>
+        <div class="feature">
+          <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          <h3>Original Weapons</h3>
+          <p>Every classic gun, shotgun and sniper you loved – authentic stats, nostalgic feel.</p>
         </div>
-    </section>
 
-    <!-- ==================== ABOUT ==================== -->
-    <section id="about">
-        <div class="container">
-            <h2>What is Restore?</h2>
-            <p style="max-width:70ch;margin:auto;text-align:center;">
-                Restore is a fan‑driven project that brings back the original Fortnite battle‑royale
-                experience from its peak. Full maps, classic weapons,the iconic
-                Battle Bus, Arena and so much more is all back, ready for you to jump in and relive the golden era.
-                <br>We are a community‑first initiative; all data is stored securely and
-                respects Epic’s EULA. Join us and help shape the future of the OG experience!
-            </p>
+        <div class="feature">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 12h5v8h6v-6h2v6h6v-8h5z"/></svg>
+          <h3>Battle Bus Reimagined</h3>
+          <p>Soar from the nostalgic Bus with a fresh launch system that feels smooth and responsive.</p>
         </div>
-    </section>
 
-    <!-- ==================== FEATURES ==================== -->
-    <section id="features">
-        <div class="container">
-            <h2>Features</h2>
-            <div class="grid grid-2">
-                <div class="feature">
-                    <i>🗺️</i>
-                    <h3>Classic Maps</h3>
-                    <p>All original locations from Seasons 19 aka Chapter 3 Season 1, faithfully recreated and optimised for modern hardware.</p>
-                </div>
-                <div class="feature">
-                    <i>🔫</i>
-                    <h3>Original Weapons</h3>
-                    <p>Every classic gun, shotgun and sniper you loved – with authentic stats and visuals.</p>
-                </div>
-                <div class="feature">
-                    <i>🚀</i>
-                    <h3>Battle Bus Reimagined</h3>
-                    <p>Jump from the nostalgic Battle Bus tie‑in with a new‑generation launch system.</p>
-                </div>
-                <div class="feature">
-                    <i>💬</i>
-                    <h3>Community‑Driven</h3>
-                    <p>Vote on map additions, events, and updates – the community decides the roadmap.</p>
-                </div>
-                <div class="feature">
-                    <i>🤝</i>
-                    <h3>Arena LateGame</h3>
-                    <p>Jump right back into one of the best gamemodes of all time better then ever and grind to the top 1!</p>
-                </div>
-                <div class="feature">
-                    <i>🎮</i>
-                    <h3>Daily Refreshing Item Shops</h3>
-                    <p>Yes, you heard right, item shops refresh daily and yyou get vbucks for kills and wins!</p>
-                </div>
-            </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <h3>Community‑Driven</h3>
+          <p>Vote on map additions, events, and updates – the community decides the roadmap.</p>
         </div>
-    </section>
 
-    <!-- ==================== GALLERY ==================== -->
-    <section id="gallery">
-        <div class="container">
-            <h2>Screenshots</h2>
-            <div class="gallery">
-                <!-- Replace src attributes with your real screenshots -->
-                <img src="https://i.ibb.co/WNtYZmPs/images.jpg" alt="Gameplay">
-                <img src="https://i.ibb.co/x86f26G3/maxresdefault-1.jpg" alt="Lobby">
-                <img src="https://i.ibb.co/HfvxhhHD/some-more-then-vs-now-screenshots-of-chapter-3-part-2-2-v0-qxinqw5xqt0a1.jpg" alt="Tilted Towers">
-                <img src="https://i.ibb.co/CsY37ZVQ/1920x1080-logo-1920x1080-a61efd8b155e.jpg" alt="Chapter 3 Season 1">
-                <img src="https://i.ibb.co/d46NsvwH/3922626-fortnite1-3-20222-57-15pm.png" alt="More Gameplay">
-                <img src="https://i.ibb.co/NnGBvSJT/ba-Dhte.jpg" alt="Snowy Forest">
-            </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24"><path d="M19 13H5v-2h14v2z"/></svg>
+          <h3>Arena Late‑Game</h3>
+          <p>Jump back into the legendary Arena mode, climb the ranks, and own the victory circle!</p>
         </div>
-    </section>
 
-    <!-- ==================== TEAM ==================== -->
-    <section id="team">
-        <div class="container">
-            <h2>Meet the Team</h2>
-            <div class="grid grid-2" style="justify-items:center;">
-                <div style="text-align:center;">
-                    <!-- Replace the src with the real profile picture for Princess Razz -->
-                    <img src="images/team/member1.jpg" alt="Princess Razz" class="team-photo">
-                    <h3>Princess Razz</h3>
-                    <p>Lead Developer – Game engine & server architecture</p>
-                </div>
-                <div style="text-align:center;">
-                    <!-- Replace the src with the real profile picture for JunJun -->
-                    <img src="images/team/member2.jpg" alt="JunJun" class="team-photo">
-                    <h3>JunJun</h3>
-                    <p>Artist & UI/UX Designer – Visuals, branding, assets</p>
-                </div>
-                <div style="text-align:center;">
-                    <!-- Replace the src with the real profile picture for Swvyfn -->
-                    <img src="images/team/member3.jpg" alt="Swvyfn" class="team-photo">
-                    <h3>Swvyfn</h3>
-                    <p>Community Manager – Discord, forums & events</p>
-                </div>
-                <!-- Add more team members as needed – just copy the block above -->
-            </div>
+        <div class="feature">
+          <svg viewBox="0 0 24 24"><path d="M12 2a9 9 0 0 0-9 9c0 4.42 3.58 8 8 8h2c4.42 0 8-3.58 8-8 0-4.97-4.03-9-9-9z"/></svg>
+          <h3>Daily Item Shop</h3>
+          <p>Fresh daily offers, V‑bucks for kills & wins – just the way the OG shop felt.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== CONTACT ==================== -->
-    <section id="contact">
-        <div class="container">
-            <h2>Join the Community</h2>
-            <p style="text-align:center;max-width:70ch;margin:auto;">
-                Ready to jump back into the OG battle? Follow us on Discord for the latest
-                server updates, beta invites, and to chat with fellow fans.
-            </p>
+  <!-- ==================== Gallery ==================== -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Screenshots</h2>
+      <div class="gallery">
+        <img src="https://i.ibb.co/WNtYZmPs/images.jpg" alt="Gameplay">
+        <img src="https://i.ibb.co/x86f26G3/maxresdefault-1.jpg" alt="Lobby">
+        <img src="https://i.ibb.co/HfvxhhHD/some-more-then-vs-now-screenshots-of-chapter-3-part-2-2-v0-qxinqw5xqt0a1.jpg" alt="Tilted Towers">
+        <img src="https://i.ibb.co/CsY37ZVQ/1920x1080-logo-1920x1080-a61efd8b155e.jpg" alt="Chapter 3 Season 1">
+        <img src="https://i.ibb.co/d46NsvwH/3922626-fortnite1-3-20222-57-15pm.png" alt="More gameplay">
+        <img src="https://i.ibb.co/NnGBvSJT/ba-Dhte.jpg" alt="Snowy forest">
+      </div>
+    </div>
+  </section>
 
-            <div style="text-align:center;margin-top:1.5rem;">
-                <!-- Replace with your actual Discord invite link -->
-                <a href="https://discord.gg/rU8B2EuZga" class="cta">Join Discord →</a>
-            </div>
+  <!-- ==================== Team ==================== -->
+  <section id="team">
+    <div class="container">
+      <h2>Meet the Team</h2>
+      <div class="grid grid-2" style="justify-items:center;">
+        <div style="text-align:center;">
+          <img src="images/team/member1.jpg" alt="Princess Razz" class="team-photo">
+          <h3>Princess Razz</h3>
+          <p>Lead Developer – Game engine & server architecture</p>
         </div>
-    </section>
-
-    <!-- ==================== FOOTER ==================== -->
-    <footer>
-        <div class="container">
-            <p>&copy; <span id="year"></span> Restore – All Rights Reserved.</p>
-            <div class="socials">
-                <!-- Replace # with your real social URLs -->
-                <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.29 4.29 0 0 0 1.88-2.37c-.84.5-1.78.86-2.78 1.06a4.25 4.25 0 0 0-7.24 3.88A12.07 12.07 0 0 1 3.16 4.96a4.22 4.22 0 0 0-.58 2.14c0 1.48.75 2.78 1.9 3.55a4.24 4.24 0 0 1-1.93-.53v.05c0 2.08 1.48 3.82 3.44 4.22-.36.1-.74.15-1.13.15-.28 0-.54-.03-.8-.08a4.26 4.26 0 0 0 3.97 2.95A8.53 8.53 0 0 1 2 19.54a12.07 12.07 0 0 0 6.55 1.92c7.86 0 12.16-6.51 12.16-12.16 0-.19 0-.38-.01-.57a8.7 8.7 0 0 0 2.16-2.22z"/></svg></a>
-                <a href="#" aria-label="YouTube"><svg width="24" height="24" fill="currentColor"><path d="M19.615 3.184A2.946 2.946 0 0 0 17.917 2c-1.733-.124-8.48-.124-8.48-.124s-6.747 0-8.48.124A2.946 2.946 0 0 0 .385 3.184C0 4.937 0 8.006 0 8.006S.002 11.075.385 12.828a2.946 2.946 0 0 0 1.698 1.815c1.726.158 8.442.158 8.442.158s6.748 0 8.481-.124a2.946 2.946 0 0 0 1.698-1.815c.383-1.754.383-4.822.383-4.822s0-3.069-.383-4.822zM9.75 11.58V4.43l5.91 3.575-5.91 3.575z"/></svg></a>
-                <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.333 3.608 1.308.976.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.333 2.633-1.308 3.608-.975.976-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.976-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.082-1.791.716-3.369 1.979-4.632C5.475.716 7.053.082 8.844 0 10.124-.058 10.532-.07 12-.07zm0-2.163C8.74 0 8.332.012 7.052.07c-1.79.082-3.368.716-4.631 1.979C1.158 3.313.524 4.891.442 6.682.384 7.962.372 8.37.372 12c0 3.63.012 4.038.07 5.318.082 1.791.716 3.369 1.979 4.632 1.263 1.263 2.842 1.897 4.632 1.979 1.28.058 1.688.07 5.318.07s4.038-.012 5.318-.07c1.791-.082 3.369-.716 4.632-1.979 1.263-1.263 1.897-2.842 1.979-4.632.058-1.28.07-1.688.07-5.318s-.012-4.038-.07-5.318c-.082-1.791-.716-3.369-1.979-4.632C20.689.716 19.111.082 17.32 0 16.04-.058 15.632-.07 12-.07zM12 5.838a6.162 6.162 0 0 0-6.162 6.162A6.162 6.162 0 0 0 12 18.162a6.162 6.162 0 0 0 6.162-6.162A6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
-            </div>
-
-            <p style="margin-top:.75rem;font-size:.85rem;">
-                This is a fan‑project and is not affiliated with Epic Games.
-            </p>
+        <div style="text-align:center;">
+          <img src="images/team/member2.jpg" alt="JunJun" class="team-photo">
+          <h3>JunJun</h3>
+          <p>Artist & UI/UX Designer – Visuals, branding, assets</p>
         </div>
-    </footer>
+        <div style="text-align:center;">
+          <img src="images/team/member3.jpg" alt="Swvyfn" class="team-photo">
+          <h3>Swvyfn</h3>
+          <p>Community Manager – Discord, forums & events</p>
+        </div>
+        <!-- Add more members if you like -->
+      </div>
+    </div>
+  </section>
 
-    <!-- ==================== SCRIPTS ==================== -->
-    <script>
-        // ------------------- Mobile navigation toggle -------------------
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
+  <!-- ==================== Contact ==================== -->
+  <section id="contact">
+    <div class="container">
+      <h2>Join the Community</h2>
+      <p style="max-width:70ch;margin:auto;text-align:center;">
+        Ready to jump back into the OG battle? Follow us on Discord for the latest
+        server updates, beta invites, and to chat with fellow fans.
+      </p>
 
-        navToggle.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
-            navToggle.setAttribute('aria-expanded', !expanded);
-            navLinks.classList.toggle('open');
-        });
+      <div style="text-align:center;margin-top:1.5rem;">
+        <a href="https://discord.gg/rU8B2EuZga" class="cta">Join Discord →</a>
+      </div>
+    </div>
+  </section>
 
-        // ------------------- Theme toggle (dark <-> light) -------------------
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        const rootEl = document.documentElement;
+  <!-- ==================== Footer ==================== -->
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Restore – All Rights Reserved.</p>
 
-        // Load saved theme from localStorage (if any)
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            rootEl.setAttribute('data-theme', savedTheme);
-        }
+      <div class="socials">
+        <!-- Replace # with real social URLs -->
+        <a href="#" aria-label="Twitter"><svg width="24" height="24" fill="currentColor"><path d="M22.46 6c-.77.35-1.6.58-2.46.69a4.29 4.29 0 0 0 1.88-2.37c-.84.5-1.78.86-2.78 1.06a4.25 4.25 0 0 0-7.24 3.88A12.07 12.07 0 0 1 3.16 4.96a4.22 4.22 0 0 0-.58 2.14c0 1.48.75 2.78 1.9 3.55a4.24 4.24 0 0 1-1.93-.53v.05c0 2.08 1.48 3.82 3.44 4.22-.36.1-.74.15-1.13.15-.28 0-.54-.03-.8-.08a4.26 4.26 0 0 0 3.97 2.95A8.53 8.53 0 0 1 2 19.54a12.07 12.07 0 0 0 6.55 1.92c7.86 0 12.16-6.51 12.16-12.16 0-.19 0-.38-.01-.57a8.7 8.7 0 0 0 2.16-2.22z"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg width="24" height="24" fill="currentColor"><path d="M19.615 3.184A2.946 2.946 0 0 0 17.917 2c-1.733-.124-8.48-.124-8.48-.124s-6.747 0-8.48.124A2.946 2.946 0 0 0 .385 3.184C0 4.937 0 8.006 0 8.006S.002 11.075.385 12.828a2.946 2.946 0 0 0 1.698 1.815c1.726.158 8.442.158 8.442.158s6.748 0 8.481-.124a2.946 2.946 0 0 0 1.698-1.815c.383-1.754.383-4.822.383-4.822s0-3.069-.383-4.822zM9.75 11.58V4.43l5.91 3.575-5.91 3.575z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg width="24" height="24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.333 3.608 1.308.976.975 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.333 2.633-1.308 3.608-.975.976-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.332-3.608-1.308-.976-.975-1.246-2.242-1.308-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.082-1.791.716-3.369 1.979-4.632C5.475.716 7.053.082 8.844 0 10.124-.058 10.532-.07 12-.07zm0-2.163C8.74 0 8.332.012 7.052.07c-1.79.082-3.368.716-4.631 1.979C1.158 3.313.524 4.891.442 6.682.384 7.962.372 8.37.372 12c0 3.63.012 4.038.07 5.318.082 1.791.716 3.369 1.979 4.632 1.263 1.263 2.842 1.897 4.632 1.979 1.28.058 1.688.07 5.318.07s4.038-.012 5.318-.07c1.791-.082 3.369-.716 4.632-1.979 1.263-1.263 1.897-2.842 1.979-4.632.058-1.28.07-1.688.07-5.318s-.012-4.038-.07-5.318c-.082-1.791-.716-3.369-1.979-4.632C20.689.716 19.111.082 17.32 0 16.04-.058 15.632-.07 12-.07zM12 5.838a6.162 6.162 0 0 0-6.162 6.162A6.162 6.162 0 0 0 12 18.162a6.162 6.162 0 0 0 6.162-6.162A6.162 6.162 0 0 0 12 5.838zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+      </div>
 
-        // Set the initial icon based on the *current* theme
-        const currentTheme = rootEl.getAttribute('data-theme') || 'light';
-        themeToggleBtn.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+      <p class="footer-note">Hand‑crafted with ❤️ by the Restore crew. Not AI‑generated.</p>
+    </div>
+  </footer>
 
-        themeToggleBtn.addEventListener('click', () => {
-            const newTheme = rootEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            rootEl.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            themeToggleBtn.textContent = newTheme === 'dark' ? '☀️' : '🌙';
-        });
+  <!-- ==================== Scripts ==================== -->
+  <script>
+    // ------------------- Mobile nav toggle -------------------
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
 
-        // ------------------- Insert current year in footer -------------------
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true' || false;
+      navToggle.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('open');
+    });
+
+    // ------------------- Theme toggle (dark ↔ light) -------------------
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const root = document.documentElement;
+
+    // Load saved theme
+    const saved = localStorage.getItem('theme');
+    if (saved) root.setAttribute('data-theme', saved);
+
+    // Initialise button icon
+    const setIcon = () => {
+      const current = root.getAttribute('data-theme') || 'light';
+      themeToggleBtn.textContent = current === 'dark' ? '☀️' : '🌙';
+    };
+    setIcon();
+
+    themeToggleBtn.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', current);
+      localStorage.setItem('theme', current);
+      setIcon();
+    });
+
+    // ------------------- Fade‑in sections on scroll -------------------
+    const sections = document.querySelectorAll('section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // ------------------- Current year -------------------
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
