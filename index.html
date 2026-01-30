@@ -77,9 +77,12 @@
         }
         .nav { padding:1rem 0; }
         .logo {
-            font-size:1.5rem;
-            font-weight:700;
-            color: var(--color-primary);
+            /* we keep the class for layout purposes – the image inside handles visual styling */
+            display:inline-flex;
+            align-items:center;
+        }
+        .logo-img {               /* ← the logo picture */
+            height:40px;          /* adjust to suit your design */
         }
         .nav-links {
             list-style:none;
@@ -218,6 +221,16 @@
             font-size:1.3rem;
             color:var(--color-text);
         }
+
+        /* -------------------------------------------------
+           🔹 Team avatar helper
+           ------------------------------------------------- */
+        .team-photo {
+            width:150px;
+            height:150px;
+            border-radius:50%;
+            object-fit:cover;
+        }
     </style>
 </head>
 <body>
@@ -225,8 +238,8 @@
     <!-- ==================== HEADER ==================== -->
     <header>
         <div class="container nav flex">
-            <!-- LOGO / BRANDING -->
-            <a href="#" class="logo">Restore</a>
+            <!-- LOGO – now an image -->
+            <a href="#" class="logo"><img src="https://i.ibb.co/YTJbWRHr/sdf.png" alt="Restore Logo" class="logo-img"></a>
 
             <!-- MOBILE MENU TOGGLE -->
             <button class="nav-toggle" aria-label="Toggle navigation menu"
@@ -243,7 +256,7 @@
                     <li><a href="#gallery">Screenshots</a></li>
                     <li><a href="#team">Team</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <!-- NEW DONATE LINK -->
+                    <!-- DONATE LINK – keep pointing to your donation page -->
                     <li><a href="https://restoremp.mysellauth.com/" target="_blank" rel="noopener">Donate</a></li>
                 </ul>
             </nav>
@@ -325,8 +338,8 @@
                 <img src="https://i.ibb.co/x86f26G3/maxresdefault-1.jpg" alt="Lobby">
                 <img src="https://i.ibb.co/HfvxhhHD/some-more-then-vs-now-screenshots-of-chapter-3-part-2-2-v0-qxinqw5xqt0a1.jpg" alt="Tilted Towers">
                 <img src="https://i.ibb.co/CsY37ZVQ/1920x1080-logo-1920x1080-a61efd8b155e.jpg" alt="Chapter 3 Season 1">
-                <img src="https://i.ibb.co/d46NsvwH/3922626-fortnite1-3-20222-57-15pm.png" alt="more Gameplay">
-                <img src="https://i.ibb.co/NnGBvSJT/ba-Dhte.jpg" alt="ba-Dhte" border="0" alt="snowy Forest">
+                <img src="https://i.ibb.co/d46NsvwH/3922626-fortnite1-3-20222-57-15pm.png" alt="More Gameplay">
+                <img src="https://i.ibb.co/NnGBvSJT/ba-Dhte.jpg" alt="Snowy Forest">
             </div>
         </div>
     </section>
@@ -337,24 +350,24 @@
             <h2>Meet the Team</h2>
             <div class="grid grid-2" style="justify-items:center;">
                 <div style="text-align:center;">
-                    <img src="images/team/member1.jpg" alt="Team member A"
-                         style="width:150px;height:150px;border-radius:50%;object-fit:cover;">
+                    <!-- Replace the src with the real profile picture for Princess Razz -->
+                    <img src="images/team/member1.jpg" alt="Princess Razz" class="team-photo">
                     <h3>Princess Razz</h3>
                     <p>Lead Developer – Game engine & server architecture</p>
                 </div>
                 <div style="text-align:center;">
-                    <img src="images/team/member2.jpg" alt="Team member B"
-                         style="width:150px;height:150px;border-radius:50%;object-fit:cover;">
+                    <!-- Replace the src with the real profile picture for JunJun -->
+                    <img src="images/team/member2.jpg" alt="JunJun" class="team-photo">
                     <h3>JunJun</h3>
                     <p>Artist & UI/UX Designer – Visuals, branding, assets</p>
                 </div>
                 <div style="text-align:center;">
-                    <img src="images/team/member3.jpg" alt="Team member C"
-                         style="width:150px;height:150px;border-radius:50%;object-fit:cover;">
+                    <!-- Replace the src with the real profile picture for Swvyfn -->
+                    <img src="images/team/member3.jpg" alt="Swvyfn" class="team-photo">
                     <h3>Swvyfn</h3>
                     <p>Community Manager – Discord, forums & events</p>
                 </div>
-                <!-- Add more team members as needed -->
+                <!-- Add more team members as needed – just copy the block above -->
             </div>
         </div>
     </section>
