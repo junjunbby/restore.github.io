@@ -342,15 +342,560 @@
 
         /* Footer */
         footer {
-            padding: 2.5rem 5%;
+            padding: 0;
             text-align: center;
             border-top: 1px solid var(--border-color);
             background: var(--bg-primary);
         }
 
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            padding: 3rem 5%;
+            text-align: left;
+        }
+
+        .footer-section h4 {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-blue);
+        }
+
+        .footer-social {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .footer-bottom {
+            padding: 2rem 5%;
+            border-top: 1px solid var(--border-color);
+            background: var(--bg-secondary);
+        }
+
         footer p {
             color: var(--text-secondary);
             font-size: 1rem;
+        }
+
+        .server-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4CAF50;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 4rem 5%;
+            background: var(--bg-secondary);
+        }
+
+        .download-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .download-platforms {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .platform-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .platform-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .platform-icon {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .platform-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .download-btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--accent-dark);
+        }
+
+        .system-requirements {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .system-requirements h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .requirements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .req-column h4 {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--accent-blue);
+        }
+
+        .req-column ul {
+            list-style: none;
+        }
+
+        .req-column li {
+            padding: 0.5rem 0;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .installation-steps {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+        }
+
+        .installation-steps h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .installation-steps ol {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-left: 1.5rem;
+        }
+
+        .installation-steps li {
+            padding: 0.8rem 0;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 4rem 5%;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Leaderboard Section */
+        .leaderboard-section {
+            padding: 4rem 5%;
+            background: var(--bg-secondary);
+        }
+
+        .leaderboard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .leaderboard-tabs {
+            display: flex;
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            color: var(--accent-blue);
+            background: var(--card-bg);
+        }
+
+        .tab-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .leaderboard-table {
+            padding: 1rem;
+        }
+
+        .leaderboard-row {
+            display: grid;
+            grid-template-columns: 80px 1fr 100px;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.3s ease;
+        }
+
+        .leaderboard-row:hover {
+            background: var(--bg-tertiary);
+        }
+
+        .leaderboard-row.header-row {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .leaderboard-row.header-row:hover {
+            background: none;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 4rem 5%;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .news-date {
+            color: var(--accent-blue);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .news-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        .news-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Community Section */
+        .community-section {
+            padding: 4rem 5%;
+            background: var(--bg-secondary);
+        }
+
+        .community-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+        }
+
+        .stat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .stat-number {
+            font-family: 'Teko', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 0.8rem 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+        }
+
+        .social-btn.discord:hover {
+            border-color: #5865F2;
+        }
+
+        .social-btn.twitter:hover {
+            border-color: #1DA1F2;
+        }
+
+        .social-btn.youtube:hover {
+            border-color: #FF0000;
+        }
+
+        .social-btn.tiktok:hover {
+            border-color: #000000;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 5%;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: var(--accent-blue);
+        }
+
+        .faq-question {
+            font-family: 'Teko', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 4rem 5%;
+            background: var(--bg-secondary);
+        }
+
+        .team-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-blue);
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.2);
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid var(--accent-blue);
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover .team-avatar {
+            transform: scale(1.1);
+            border-color: var(--accent-dark);
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-card h3 {
+            font-family: 'Teko', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .team-role {
+            color: var(--accent-blue);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .team-username {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-family: monospace;
         }
 
         /* Responsive */
@@ -388,6 +933,20 @@
 
             .gallery-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+
+            .leaderboard-row {
+                grid-template-columns: 60px 1fr 80px;
+                padding: 0.8rem;
             }
         }
     </style>
@@ -506,9 +1065,328 @@
         <a href="#" class="cta-button">Download Launcher</a>
     </section>
 
+    <section class="download-section" id="download">
+        <div class="download-container">
+            <h2 class="section-title">Download & Install</h2>
+            <div class="download-platforms">
+                <div class="platform-card">
+                    <span class="platform-icon">🪟</span>
+                    <h3>Windows</h3>
+                    <p>Windows 10/11 (64-bit)</p>
+                    <a href="#" class="download-btn">Download for Windows</a>
+                </div>
+                <div class="platform-card">
+                    <span class="platform-icon">🍎</span>
+                    <h3>macOS</h3>
+                    <p>macOS 11.0 or later</p>
+                    <a href="#" class="download-btn">Download for Mac</a>
+                </div>
+                <div class="platform-card">
+                    <span class="platform-icon">🐧</span>
+                    <h3>Linux</h3>
+                    <p>Ubuntu 20.04+ / Debian</p>
+                    <a href="#" class="download-btn">Download for Linux</a>
+                </div>
+            </div>
+            
+            <div class="system-requirements">
+                <h3>System Requirements</h3>
+                <div class="requirements-grid">
+                    <div class="req-column">
+                        <h4>Minimum</h4>
+                        <ul>
+                            <li>CPU: Intel Core i3 2.4 GHz</li>
+                            <li>RAM: 8 GB</li>
+                            <li>GPU: Intel HD 4000</li>
+                            <li>Storage: 30 GB</li>
+                        </ul>
+                    </div>
+                    <div class="req-column">
+                        <h4>Recommended</h4>
+                        <ul>
+                            <li>CPU: Intel Core i5 3.5 GHz</li>
+                            <li>RAM: 16 GB</li>
+                            <li>GPU: NVIDIA GTX 1060 / AMD RX 580</li>
+                            <li>Storage: 50 GB SSD</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="installation-steps">
+                <h3>Installation Guide</h3>
+                <ol>
+                    <li>Download the Restore Launcher for your platform</li>
+                    <li>Run the installer and follow the setup wizard</li>
+                    <li>Launch Restore and create/login to your account</li>
+                    <li>Download Chapter 3 Season 1 files (automated)</li>
+                    <li>Click "Play" and enjoy!</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <h2 class="section-title">Experience Chapter 3 Season 1</h2>
+        <div class="video-container">
+            <div class="video-placeholder">
+                <span style="font-size: 4rem;">▶️</span>
+                <p>Gameplay Trailer</p>
+                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Replace with your YouTube embed:</p>
+                <code style="font-size: 0.8rem; color: var(--text-secondary);">&lt;iframe src="https://youtu.be/knAYcg7Tt8E"&gt;&lt;/iframe&gt;</code>
+            </div>
+        </div>
+    </section>
+
+    <section class="leaderboard-section">
+        <h2 class="section-title">Top Players</h2>
+        <div class="leaderboard-container">
+            <div class="leaderboard-tabs">
+                <button class="tab-btn active">Arena Points</button>
+                <button class="tab-btn">Victory Royales</button>
+                <button class="tab-btn">Kills</button>
+            </div>
+            <div class="leaderboard-table">
+                <div class="leaderboard-row header-row">
+                    <span>Rank</span>
+                    <span>Player</span>
+                    <span>Points</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>🥇 1</span>
+                    <span>SkullTrooper_YT</span>
+                    <span>15,847</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>🥈 2</span>
+                    <span>NinjaWarrior</span>
+                    <span>14,923</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>🥉 3</span>
+                    <span>TwitchStreamer</span>
+                    <span>13,456</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>4</span>
+                    <span>ProBuilder99</span>
+                    <span>12,789</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>5</span>
+                    <span>SniperElite</span>
+                    <span>12,234</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>6</span>
+                    <span>VictoryKing</span>
+                    <span>11,890</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>7</span>
+                    <span>ChapterLegend</span>
+                    <span>11,567</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>8</span>
+                    <span>TiltedMaster</span>
+                    <span>11,234</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>9</span>
+                    <span>OGPlayer2021</span>
+                    <span>10,998</span>
+                </div>
+                <div class="leaderboard-row">
+                    <span>10</span>
+                    <span>ArenaChampion</span>
+                    <span>10,756</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2 class="section-title">Latest Updates</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-date">Jan 28, 2026</div>
+                <h3>Server Performance Improvements</h3>
+                <p>We've upgraded our infrastructure to provide even better performance and lower latency for all players.</p>
+            </div>
+            <div class="news-card">
+                <div class="news-date">Jan 25, 2026</div>
+                <h3>Arena Season 2 Announced</h3>
+                <p>New competitive season starting February 1st with exclusive rewards and a fresh leaderboard reset.</p>
+            </div>
+            <div class="news-card">
+                <div class="news-date">Jan 20, 2026</div>
+                <h3>Anti-Cheat Update v2.3</h3>
+                <p>Enhanced detection systems and improved reporting tools to keep the game fair for everyone.</p>
+            </div>
+            <div class="news-card">
+                <div class="news-date">Jan 15, 2026</div>
+                <h3>Community Tournament Results</h3>
+                <p>Congratulations to all participants! Over 500 players competed for exclusive in-game rewards.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="community-section">
+        <h2 class="section-title">Join Our Community</h2>
+        <div class="community-stats">
+            <div class="stat-card">
+                <div class="stat-icon">💬</div>
+                <div class="stat-number">12,500+</div>
+                <div class="stat-label">Discord Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🎮</div>
+                <div class="stat-number">3,200+</div>
+                <div class="stat-label">Online Now</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-number">150+</div>
+                <div class="stat-label">Daily Tournaments</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🌍</div>
+                <div class="stat-number">45+</div>
+                <div class="stat-label">Countries</div>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="https://discord.gg/rU8B2EuZga" target="_blank" class="social-btn discord">
+                <span>💬</span> Discord
+            </a>
+            <a href="#" class="social-btn twitter">
+                <span>🐦</span> Twitter
+            </a>
+            <a href="#" class="social-btn youtube">
+                <span>▶️</span> YouTube
+            </a>
+            <a href="#" class="social-btn tiktok">
+                <span>🎵</span> TikTok
+            </a>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2 class="section-title">Meet The Team</h2>
+        <p class="team-subtitle">The people behind Restore</p>
+        <div class="team-grid">
+            <div class="team-card">
+                <div class="team-avatar">
+                    <img src="https://via.placeholder.com/150/4a90e2/ffffff?text=JJ" alt="JunJun">
+                </div>
+                <h3>JunJun</h3>
+                <p class="team-role">Founder & Lead Developer</p>
+                <p class="team-username">@junjun0558</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <img src="https://via.placeholder.com/150/e24a90/ffffff?text=PR" alt="Princess Razz">
+                </div>
+                <h3>Princess Razz</h3>
+                <p class="team-role">Co-Founder & Community Manager</p>
+                <p class="team-username">@doge_sv</p>
+            </div>
+            <div class="team-card">
+                <div class="team-avatar">
+                    <img src="https://via.placeholder.com/150/90e24a/ffffff?text=SW" alt="swvyfn">
+                </div>
+                <h3>swvyfn</h3>
+                <p class="team-role">Co-Founder & Server Administrator</p>
+                <p class="team-username">@swvyfn</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section" id="faq">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question">Is Restore safe and legal?</div>
+                <div class="faq-answer">
+                    Restore is a community-run project that allows players to experience Chapter 3 Season 1. While we respect Epic Games' intellectual property, this is a fan-made project for nostalgic purposes. Use at your own discretion.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do I connect to the server?</div>
+                <div class="faq-answer">
+                    Simply download the Restore Launcher, create an account, and click "Play". The launcher handles everything automatically - no manual configuration needed!
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Can I use my Epic Games account?</div>
+                <div class="faq-answer">
+                    No, Restore uses separate accounts to keep your Epic Games account safe. You'll create a new Restore account when you first launch the game.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What weapons and items are available?</div>
+                <div class="faq-answer">
+                    We feature the complete Chapter 3 Season 1 loot pool including the MK-Seven Assault Rifle, Striker Pump Shotgun, Auto Shotgun, Ranger Assault Rifle, and all the iconic items from that season.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Are there any costs involved?</div>
+                <div class="faq-answer">
+                    Restore is completely free to play! However, donations help us keep servers running and maintain quality. Donors receive optional perks like priority queue and exclusive cosmetics.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What game modes are available?</div>
+                <div class="faq-answer">
+                    We offer Solo, Duo, Squad modes, plus competitive Arena matches. Creative mode and LTMs are planned for future updates!
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2026 Restore | Chapter 3 Season 1 | Not affiliated with Epic Games</p>
-        <p style="margin-top: 1rem; font-size: 0.9rem;">This is a community-run project for nostalgic purposes only.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Restore</h4>
+                <p>Reliving Chapter 3 Season 1</p>
+                <div class="server-status">
+                    <span class="status-dot online"></span>
+                    <span>All servers online</span>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#download">Download</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#donate">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Code of Conduct</a></li>
+                    <li><a href="#">DMCA</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Community</h4>
+                <div class="footer-social">
+                    <a href="https://discord.gg/rU8B2EuZga" target="_blank">💬 Discord</a>
+                    <a href="#">🐦 Twitter</a>
+                    <a href="#">▶️ YouTube</a>
+                    <a href="#">🎵 TikTok</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Restore | Chapter 3 Season 1 | Not affiliated with Epic Games</p>
+            <p style="margin-top: 0.5rem; font-size: 0.85rem;">This is a community-run project for nostalgic purposes only.</p>
+        </div>
     </footer>
 
     <script>
@@ -550,6 +1428,21 @@
                         block: 'start'
                     });
                 }
+            });
+        });
+
+        // Leaderboard tabs
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // FAQ toggle (optional expansion feature)
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', function() {
+                this.style.background = this.style.background === 'var(--bg-tertiary)' ? '' : 'var(--bg-tertiary)';
             });
         });
     </script>
