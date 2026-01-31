@@ -552,101 +552,6 @@
             line-height: 1.6;
         }
 
-        /* Video Section */
-        .video-section {
-            padding: 4rem 5%;
-        }
-
-        .video-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .video-placeholder {
-            aspect-ratio: 16/9;
-            background: var(--bg-tertiary);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-secondary);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* Leaderboard Section */
-        .leaderboard-section {
-            padding: 4rem 5%;
-            background: var(--bg-secondary);
-        }
-
-        .leaderboard-container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-        }
-
-        .leaderboard-tabs {
-            display: flex;
-            background: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .tab-btn {
-            flex: 1;
-            padding: 1rem;
-            background: none;
-            border: none;
-            color: var(--text-secondary);
-            font-family: 'Rajdhani', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active {
-            color: var(--accent-blue);
-            background: var(--card-bg);
-        }
-
-        .tab-btn:hover {
-            color: var(--text-primary);
-        }
-
-        .leaderboard-table {
-            padding: 1rem;
-        }
-
-        .leaderboard-row {
-            display: grid;
-            grid-template-columns: 80px 1fr 100px;
-            padding: 1rem;
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.3s ease;
-        }
-
-        .leaderboard-row:hover {
-            background: var(--bg-tertiary);
-        }
-
-        .leaderboard-row.header-row {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .leaderboard-row.header-row:hover {
-            background: none;
-        }
-
         /* News Section */
         .news-section {
             padding: 4rem 5%;
@@ -943,11 +848,6 @@
             .social-links {
                 flex-direction: column;
             }
-
-            .leaderboard-row {
-                grid-template-columns: 60px 1fr 80px;
-                padding: 0.8rem;
-            }
         }
     </style>
 </head>
@@ -1073,19 +973,19 @@
                     <span class="platform-icon">🪟</span>
                     <h3>Windows</h3>
                     <p>Windows 10/11 (64-bit)</p>
-                    <a href="#" class="download-btn">Download for Windows</a>
+                    <a href="#" class="download-btn">Download for Windows is coming on release</a>
                 </div>
                 <div class="platform-card">
                     <span class="platform-icon">🍎</span>
                     <h3>macOS</h3>
                     <p>macOS 11.0 or later</p>
-                    <a href="#" class="download-btn">Download for Mac</a>
+                    <a href="#" class="download-btn">Download for Mac is coming soon</a>
                 </div>
                 <div class="platform-card">
                     <span class="platform-icon">🐧</span>
                     <h3>Linux</h3>
                     <p>Ubuntu 20.04+ / Debian</p>
-                    <a href="#" class="download-btn">Download for Linux</a>
+                    <a href="#" class="download-btn">Download for Linux is coming soon </a>
                 </div>
             </div>
             
@@ -1126,86 +1026,6 @@
         </div>
     </section>
 
-    <section class="video-section">
-        <h2 class="section-title">Experience Chapter 3 Season 1</h2>
-        <div class="video-container">
-            <div class="video-placeholder">
-                <span style="font-size: 4rem;">▶️</span>
-                <p>Gameplay Trailer</p>
-                <p style="font-size: 0.9rem; margin-top: 0.5rem;">Replace with your YouTube embed:</p>
-                <code style="font-size: 0.8rem; color: var(--text-secondary);">&lt;iframe src="https://youtu.be/knAYcg7Tt8E"&gt;&lt;/iframe&gt;</code>
-            </div>
-        </div>
-    </section>
-
-    <section class="leaderboard-section">
-        <h2 class="section-title">Top Players</h2>
-        <div class="leaderboard-container">
-            <div class="leaderboard-tabs">
-                <button class="tab-btn active">Arena Points</button>
-                <button class="tab-btn">Victory Royales</button>
-                <button class="tab-btn">Kills</button>
-            </div>
-            <div class="leaderboard-table">
-                <div class="leaderboard-row header-row">
-                    <span>Rank</span>
-                    <span>Player</span>
-                    <span>Points</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>🥇 1</span>
-                    <span>SkullTrooper_YT</span>
-                    <span>15,847</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>🥈 2</span>
-                    <span>NinjaWarrior</span>
-                    <span>14,923</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>🥉 3</span>
-                    <span>TwitchStreamer</span>
-                    <span>13,456</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>4</span>
-                    <span>ProBuilder99</span>
-                    <span>12,789</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>5</span>
-                    <span>SniperElite</span>
-                    <span>12,234</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>6</span>
-                    <span>VictoryKing</span>
-                    <span>11,890</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>7</span>
-                    <span>ChapterLegend</span>
-                    <span>11,567</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>8</span>
-                    <span>TiltedMaster</span>
-                    <span>11,234</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>9</span>
-                    <span>OGPlayer2021</span>
-                    <span>10,998</span>
-                </div>
-                <div class="leaderboard-row">
-                    <span>10</span>
-                    <span>ArenaChampion</span>
-                    <span>10,756</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="news-section">
         <h2 class="section-title">Latest Updates</h2>
         <div class="news-grid">
@@ -1237,22 +1057,22 @@
         <div class="community-stats">
             <div class="stat-card">
                 <div class="stat-icon">💬</div>
-                <div class="stat-number">12,500+</div>
+                <div class="stat-number">150+</div>
                 <div class="stat-label">Discord Members</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🎮</div>
-                <div class="stat-number">3,200+</div>
+                <div class="stat-number">10+</div>
                 <div class="stat-label">Online Now</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🏆</div>
-                <div class="stat-number">150+</div>
-                <div class="stat-label">Daily Tournaments</div>
+                <div class="stat-number">10</div>
+                <div class="stat-label">Monthly Tournaments</div>
             </div>
             <div class="stat-card">
                 <div class="stat-icon">🌍</div>
-                <div class="stat-number">45+</div>
+                <div class="stat-number">10+</div>
                 <div class="stat-label">Countries</div>
             </div>
         </div>
@@ -1260,14 +1080,11 @@
             <a href="https://discord.gg/rU8B2EuZga" target="_blank" class="social-btn discord">
                 <span>💬</span> Discord
             </a>
-            <a href="#" class="social-btn twitter">
-                <span>🐦</span> Twitter
-            </a>
             <a href="#" class="social-btn youtube">
                 <span>▶️</span> YouTube
             </a>
             <a href="#" class="social-btn tiktok">
-                <span>🎵</span> TikTok
+                <span>🎵</span> TikTok|coming soon...
             </a>
         </div>
     </section>
@@ -1278,7 +1095,7 @@
         <div class="team-grid">
             <div class="team-card">
                 <div class="team-avatar">
-                    <img src="https://via.placeholder.com/150/4a90e2/ffffff?text=JJ" alt="JunJun">
+                    <img src="https://i.ibb.co/ymHL4SWv/Download.jpg" alt="JunJun">
                 </div>
                 <h3>JunJun</h3>
                 <p class="team-role">Founder & Lead Developer</p>
@@ -1286,7 +1103,7 @@
             </div>
             <div class="team-card">
                 <div class="team-avatar">
-                    <img src="https://via.placeholder.com/150/e24a90/ffffff?text=PR" alt="Princess Razz">
+                    <img src="https://i.ibb.co/Y7q7sPVJ/a-7804233922a5c79c4b182808d9a5ae6a.gif" alt="Princess Razz">
                 </div>
                 <h3>Princess Razz</h3>
                 <p class="team-role">Co-Founder & Community Manager</p>
@@ -1294,7 +1111,7 @@
             </div>
             <div class="team-card">
                 <div class="team-avatar">
-                    <img src="https://via.placeholder.com/150/90e24a/ffffff?text=SW" alt="swvyfn">
+                    <img src="https://i.ibb.co/MDmr14VT/0696a7f1dc7d8f69cb3825d48bf5a674.png" alt="swvyfn">
                 </div>
                 <h3>swvyfn</h3>
                 <p class="team-role">Co-Founder & Server Administrator</p>
@@ -1339,7 +1156,7 @@
             <div class="faq-item">
                 <div class="faq-question">What game modes are available?</div>
                 <div class="faq-answer">
-                    We offer Solo, Duo, Squad modes, plus competitive Arena matches. Creative mode and LTMs are planned for future updates!
+                    We offer Solo, Duo,plus competitive Arena matches. Creative mode and LTMs are planned for future updates!
                 </div>
             </div>
         </div>
@@ -1377,9 +1194,8 @@
                 <h4>Community</h4>
                 <div class="footer-social">
                     <a href="https://discord.gg/rU8B2EuZga" target="_blank">💬 Discord</a>
-                    <a href="#">🐦 Twitter</a>
-                    <a href="#">▶️ YouTube</a>
-                    <a href="#">🎵 TikTok</a>
+                    <a href="https://youtube.com/@restoreog?si=PW8iilUkP5s0pckp">▶️ YouTube</a>
+                    <a href="#">🎵 TikTok|coming soon</a>
                 </div>
             </div>
         </div>
@@ -1428,14 +1244,6 @@
                         block: 'start'
                     });
                 }
-            });
-        });
-
-        // Leaderboard tabs
-        document.querySelectorAll('.tab-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
             });
         });
 
